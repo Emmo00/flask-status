@@ -64,5 +64,11 @@ You are also welcome to contributing to this project.
 Special thanks to the Flask community
 
 ## Author
-
 - [Emmanuel Nwafor](https://github.com/Emmo00)
+
+## Contributors
+<a href="https://github.com/emmo00/flask-status/graphs/contributors">
+	<p align="center">
+  		<img src="https://contrib.rocks/image?repo=emmo00/flask-status" />
+	</p>
+</a>
