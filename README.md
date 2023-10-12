@@ -36,7 +36,7 @@ app = Flask(__name__)
 FlaskStatus(app, url="/api/status")
 
 if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000)
 ```
 
 - run the `main.py` file
@@ -65,5 +65,4 @@ Special thanks to the Flask community
 
 ## Author
 
-- Emmanuel Nwafor
-- [GitHub](https://github.com/Emmo00)
+- [Emmanuel Nwafor](https://github.com/Emmo00)
