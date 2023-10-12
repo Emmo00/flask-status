@@ -71,6 +71,6 @@ Special thanks to the Flask community
 ## Contributors
 <a href="https://github.com/emmo00/flask-status/graphs/contributors">
 	<p align="center">
-  		<img src="https://contrib.rocks/image?repo=emmo00/learn-c" />
+  		<img src="https://contrib.rocks/image?repo=emmo00/flask-status" />
 	</p>
 </a>
