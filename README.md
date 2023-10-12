@@ -65,5 +65,4 @@ Special thanks to the Flask community
 
 ## Author
 
-- Emmanuel Nwafor
-- [GitHub](https://github.com/Emmo00)
+- [Emmanuel Nwafor](https://github.com/Emmo00)
