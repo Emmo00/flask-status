@@ -33,7 +33,7 @@ from flask import Flask
 from flask_status import FlaskStatus
 
 app = Flask(__name__)
-FlaskStatus(app, url="/api/status")
+FlaskStatus(app, url="/api/status", message={"message": "show my status"})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
@@ -51,7 +51,15 @@ python3 main.py
 
 ```json
 {
-    "status": "OK"
+  "status": "OK"
+}
+```
+
+If custom message is passed, then:
+
+```json
+{
+  "message": "show my status"
 }
 ```
 
@@ -64,9 +72,11 @@ You are also welcome to contributing to this project.
 Special thanks to the Flask community
 
 ## Author
+
 - [Emmanuel Nwafor](https://github.com/Emmo00)
 
 ## Contributors
+
 <a href="https://github.com/emmo00/flask-status/graphs/contributors">
 	<p align="center">
   		<img src="https://contrib.rocks/image?repo=emmo00/flask-status" />
