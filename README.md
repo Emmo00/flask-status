@@ -125,7 +125,7 @@ You can now also set the status ping route to be for only authenticated users of
 from functools import wraps
 
 # define an authenticator decorator function
-def login_required(self, func):
+def login_required(func):
     @wraps(func)
     def wrapper(*args, **kwargs):
         token = request.cookies.get(AUTH_TOKEN_HEADER)

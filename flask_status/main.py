@@ -36,7 +36,7 @@ class FlaskStatus:
         else:
             raise TypeError("Status Ping message must be a string or dictionary")
 
-        if type(authenticator) is not None:
+        if authenticator is not None:
             if type(authenticator) is not FunctionType:
                 raise TypeError(
                     "Status Ping authenticator must be a decorator function"
