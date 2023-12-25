@@ -4,6 +4,12 @@ from flask import Flask, jsonify
 
 
 class FlaskStatus:
+    """Flask status - Add status ping route to flask application
+    ```
+    FlaskStatus(app)
+    ```
+    """
+
     def __init__(
         self,
         app: Flask | None = None,
@@ -45,12 +51,14 @@ class FlaskStatus:
             @app.route(self.status_ping_url, methods=["GET"])
             @authenticator
             def status_ping():
+                """Authenticated status ping endpoint"""
                 return jsonify(self.status_message), 200
 
             return
 
         @app.route(self.status_ping_url, methods=["GET"])
         def status_ping():
+            """Status ping endpoint"""
             return jsonify(self.status_message), 200
 
     def add_field(self, key: str, value: Any) -> None:
