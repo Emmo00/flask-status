@@ -1,8 +1,14 @@
+from typing import Any
 from flask import Flask, jsonify
 
 
 class FlaskStatus:
-    def __init__(self, app: Flask | None = None, url="/api/status", message={"status": "OK"}):
+    def __init__(
+        self,
+        app: Flask | None = None,
+        url: str = "/api/status",
+        message: Any = {"status": "OK"},
+    ):
         self.status_ping_url = url
         self.status_message = message
         if app is not None:
