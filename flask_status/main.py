@@ -9,20 +9,20 @@ class FlaskStatus:
         app: Flask | None = None,
         url: str = "/api/status",
         message: str | Dict[str, str] = {"status": "OK"},
-        authenticated: bool = False,
         authenticator: Callable[[Callable], Callable] = None,
     ):
+        """Initialize flask-status"""
         if app is not None:
-            self.init_app(app, url, message, authenticated, authenticator)
+            self.init_app(app, url, message, authenticator)
 
     def init_app(
         self,
         app: Flask,
         url: str = "/api/status",
         message: str | Dict[str, str] = {"status": "OK"},
-        authenticated: bool = False,
         authenticator: Callable[[Callable], Callable] = None,
     ) -> None:
+        """Add flask app to flask-status"""
         if type(url) is not str:
             raise TypeError("Status Ping URL must be a string")
         if not url.startswith("/"):
@@ -36,7 +36,7 @@ class FlaskStatus:
         else:
             raise TypeError("Status Ping message must be a string or dictionary")
 
-        if authenticated == True:
+        if type(authenticator) is not None:
             if type(authenticator) is not FunctionType:
                 raise TypeError(
                     "Status Ping authenticator must be a decorator function"
@@ -54,11 +54,16 @@ class FlaskStatus:
             return jsonify(self.status_message), 200
 
     def add_field(self, key: str, value: Any) -> None:
+        """Add more field data to payload"""
         if type(key) is not str:
             raise TypeError("Status Ping field key must be a string")
-        if type(value) is str:
-            self.status_message[key] = value
-        elif type(value) is FunctionType:
+        if type(value) is FunctionType:
             self.status_message[key] = value()
         else:
-            raise TypeError("Status Ping value must be a string or function")
+            try:
+                import json
+
+                json.dumps(value)
+            except TypeError:
+                raise TypeError("Status Ping field value is not JSON serializable")
+            self.status_message[key] = value
